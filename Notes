@@ -1,0 +1,5 @@
+Notes 
+md5 password :
+admin.php 173 86  md5('$_POST[password]'),'$_POST[level_user]')");
+cek_login : 5
+check-login : 21

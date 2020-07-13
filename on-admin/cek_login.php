@@ -1,5 +1,6 @@
 <?php
-// error_reporting(0);
+error_reporting(0);
+
 include "config/koneksi.php";
 $pass=md5($_POST[pass]);
 
@@ -10,9 +11,9 @@ $r=mysql_fetch_array($login);
 // Apabila username dan password ditemukan
 if ($ketemu > 0){
   session_start();
-
+  
   // inisialisasi session /////////
-
+  
   ("username");
   ("password");
   ("status");
@@ -22,7 +23,7 @@ if ($ketemu > 0){
   $_SESSION[password]     = $r[password];
   $_SESSION[status]       = $r[status];
   $_SESSION[id_level]     = $r[id_level];
-
+  
   header('location:home.php');
 
 }

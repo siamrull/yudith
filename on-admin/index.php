@@ -71,7 +71,7 @@ session_start();
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
+              
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -87,10 +87,10 @@ session_start();
                     <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
                     <p>
                       <?php echo" $_SESSION[namalengkap] "?> ADMIN
-
+                   
                     </p>
                   </li>
-
+                  
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-right">
@@ -104,7 +104,7 @@ session_start();
           </div>
         </nav>
       </header>
-
+      
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
 
@@ -117,24 +117,24 @@ session_start();
                 <i class="fa fa-dashboard"></i> <span>Beranda</span>
               </a>
             </li>
-
+                        
              <li class="treeview">
              <a href="?pg=produk&act=view">
-               <i class="fa fa-circle-o"></i>
-                <span>Data Produk</span>
+               <i class="fa fa-circle-o"></i> 
+                <span>Data Produk</span> 
               </a>
             </li>
 
             <li class="treeview">
               <a href="?pg=penjualan&act=view">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Data Pejualan</span>
+                <span>Data Pejualan</span> 
               </a>
             </li>
             <li class="treeview">
               <a href="?pg=lappj&act=view">
                 <i class="fa fa-files-o"></i>
-                <span>Laporan Penjualan</span>
+                <span>Laporan Penjualan</span> 
               </a>
             </li>
           </ul>
@@ -153,10 +153,10 @@ session_start();
         <div align="center" class="pull-center hidden-xs">
           <b><strong >Copyright &copy; 2020 <a href="webphpmysql.com"></a></strong></b>
         </div>
-
+        
       </footer>
 
-
+      
       <!-- Add the sidebar's background. This div must be placed
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
@@ -184,15 +184,6 @@ session_start();
     <!-- DataTables -->
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
-    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
     <!-- SlimScroll -->
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -225,17 +216,9 @@ session_start();
           "autoWidth": false,
           "responsive": true
         });
-        // $('#example3').DataTable({
-        //     dom: 'Bfrtip',
-        //     buttons: [
-        //         { "extend": 'pdf',
-        //         "text":'<span class="fa fa-file-pdf-o"> Cetak PDF </span>',
-        //         "className": 'btn btn-danger btn-xs', footer:true }
-        // ]
-        // });
       });
     </script>
-
+    
     <!-- page script Select2 Elements -->
     <script>
       $(function () {
@@ -243,7 +226,7 @@ session_start();
         $(".select2").select2();
          });
     </script>
-
+    
     <!-- page script Submenu -->
     <script src="dist/js/bootstrap-submenu.min.js"></script>
 

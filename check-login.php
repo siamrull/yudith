@@ -3,15 +3,15 @@ session_start();
 require 'config.php';
 
 if ( isset($_POST['username']) && isset($_POST['password']) ) {
-
-    $sql_check = "SELECT nama,
-                         level_user,
-                         id_user
-                  FROM users
-                  WHERE
-                       username=?
-                       AND
-                       password=?
+    
+    $sql_check = "SELECT nama, 
+                         level_user, 
+                         id_user 
+                  FROM users 
+                  WHERE 
+                       username=? 
+                       AND 
+                       password=? 
                   LIMIT 1";
 
     $check_log = $dbconnect->prepare($sql_check);
@@ -31,8 +31,7 @@ if ( isset($_POST['username']) && isset($_POST['password']) ) {
             $_SESSION['user_login'] = $level_user;
             $_SESSION['sess_id']    = $id_user;
             $_SESSION['nama']       = $nama;
-            $_SESSION['username']   = $username;
-
+            
         }
 
         $check_log->close();
@@ -45,7 +44,7 @@ if ( isset($_POST['username']) && isset($_POST['password']) ) {
         exit();
     }
 
-
+   
 } else {
     header('location:login.php');
     exit();

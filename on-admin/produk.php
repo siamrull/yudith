@@ -1,5 +1,5 @@
 <?php
-
+error_reporting
 ?>
 
 <?php
@@ -7,7 +7,7 @@
 //    echo "Not found!";
 //} else {
     switch ($_GET['act']) {
-    // PROSES VIEW DATA PRODUK //
+    // PROSES VIEW DATA PRODUK //      
       case 'view':
       ?>
 
@@ -17,7 +17,7 @@
         <h1> Data Produk </h1>
             <ol class="breadcrumb">
             <li><a href="?pg=dashboard"><i class="fa fa-dashboard"></i>Beranda</a></li>
-            <li class="active"><a href="?pg=produk&act=view">Data Produk
+            <li class="active"><a href="?pg=produk&act=view">Data Produk   
              </ol>
         </section>
 
@@ -43,7 +43,7 @@
                         <th>Hapus</th>
                       </tr>
                     </thead>
-
+          
                     <tbody>
                     <?php
                     $tampil=mysql_query("SELECT * FROM produk order by id_produk asc");
@@ -69,8 +69,8 @@
                     $no++;
                     }
                     ?>
-
-
+          
+      
                </tbody>
                   </table>
                   </div><!-- /.box-body -->
@@ -78,14 +78,14 @@
               </div><!-- /.box -->
               </div>
               <div class="sisaStok">Stok yang akan Habis : <br/></div>
-              <div class="sisa"> <!--sisa-->
+              <div class="sisa"> <!--sisa-->        
                 <?php
                 $tampil=mysql_query("SELECT * FROM produk");
                       while ($r=mysql_fetch_array($tampil))
                       {
                         if($r[stokproduk] <= 28 ){
                           echo " - $r[nama_produk] Sisa $r[stokproduk]<br/>";
-                        }
+                        } 
                       }
                 ?>
                 </div> <!-- /.col -->
@@ -106,10 +106,10 @@
     $stokproduk=$_POST['stokproduk'];
     $satuan=$_POST['satuan'];
     $tglmasuk=$_POST['tglmasuk'];
-
+   
 //script validasi data
-
-    $cek = mysql_num_rows(mysql_query("SELECT * FROM produk WHERE
+ 
+    $cek = mysql_num_rows(mysql_query("SELECT * FROM produk WHERE 
   kode_produk='$kode_produk'"));
     if ($cek > 0){
     echo "<script>window.alert('Nama Barang yang anda masukan sudah ada')
@@ -117,7 +117,7 @@
     }else {
     $query = mysql_query("INSERT INTO produk VALUES ('','$_POST[nama_produk]',
                 '$_POST[harga]','$_POST[stokproduk]','$_POST[satuan]','$_POST[tglmasuk]')");
-
+                
     echo "<script>window.alert('Data Berhasil Di Simpan')
     window.location='?pg=produk&act=view'</script>";
     }
@@ -165,7 +165,7 @@
                       <label for="exampleInputEmail1">Tanggal Pemasukan</label>
                       <input class="form-control" id="date" name="tglmasuk" placeholder="MM/DD/YYY" type="text" required data-fv-notempty-message="Tidak boleh kosong" />
                     </div>
-
+                    
                   </div><!-- /.box-body -->
 
               </div><!-- /.box -->
@@ -173,7 +173,7 @@
 
               </div> <!-- /.row -->
 
-
+          
             <!-- Tombol Bagian Bawah -->
 
             <div class="row">
@@ -183,7 +183,7 @@
               <button type="submit" name = 'add' class="btn btn-info">Simpan</button>
               &nbsp;
               <button type="reset" class="btn btn-success">Reset</button>
-
+                  
             </form>
                   </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -231,7 +231,7 @@
                   <div class="box-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nama Produk</label>
-                      <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Nama Produk"
+                      <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Nama Produk" 
             required data-fv-notempty-message="Tidak boleh kosong" value= "<?php echo $d['nama_produk'];?>">
                     </div>
                     <div class="form-group">
@@ -245,7 +245,7 @@
                     </div>
            <div class="form-group">
                       <label for="exampleInputEmail1">Satuan</label>
-                      <input type="text" class="form-control" id="satuan" name="satuan" placeholder="satuan"
+                      <input type="text" class="form-control" id="satuan" name="satuan" placeholder="satuan" 
             required data-fv-notempty-message="Tidak boleh kosong" value= "<?php echo $d['satuan'];?>">
                     </div>
                     <div class="form-group">
@@ -259,7 +259,7 @@
 
               </div> <!-- /.row -->
 
-
+          
             <!-- Tombol Bagian Bawah -->
 
             <div class="row">
@@ -269,7 +269,7 @@
               <button type="submit" name = 'update' class="btn btn-info">Simpan</button>
               &nbsp;
               <button type="reset" class="btn btn-success">Reset</button>
-
+                  
             </form>
                   </div><!-- /.box-body -->
               </div><!-- /.box -->

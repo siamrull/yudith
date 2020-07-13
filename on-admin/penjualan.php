@@ -100,8 +100,8 @@
                 '$_POST[tglpenjualan]','$_POST[id_produk]',
                 '$_POST[itemterjual]','$total_penjualan')");
 
-                mysql_query("update produk set stokproduk = '$sisaStok'
-                             where id_produk = '$_POST[id_produk]'");
+                // mysql_query("update produk set stokproduk = '$sisaStok'
+                //              where id_produk = '$_POST[id_produk]'");
                 echo "<script>window.alert('Data Berhasil DI Simpan')
         window.location='?pg=penjualan&act=view'</script>";
               }

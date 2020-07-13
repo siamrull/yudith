@@ -216,6 +216,12 @@ session_start();
           "autoWidth": false,
           "responsive": true
         });
+        $('#example3').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'pdf'
+        ]
+        });
       });
     </script>
 

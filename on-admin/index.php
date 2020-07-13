@@ -229,7 +229,7 @@ session_start();
             dom: 'Bfrtip',
             buttons: [
                 { "extend": 'pdf',
-                "text":'<span class="glyphicon glyphicon-pencil"></span>',
+                "text":'<span class="fa fa-file-pdf-o"> Cetak PDF </span>',
                 "className": 'btn btn-default btn-xs', footer:true }
         ]
         });

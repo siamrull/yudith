@@ -3,7 +3,7 @@
 //    echo "Not found!";
 //} else {
     switch ($_GET['act']) {
-    // PROSES VIEW DATA Penjualan //      
+    // PROSES VIEW DATA Penjualan //
       case 'view':
       ?>
 
@@ -28,7 +28,7 @@
               <div class="box box-info">
                   <div class="box-body">
                   <div class="table-responsive">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example3" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>No</th>
@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                     <?php
-                    $tampil=mysql_query("SELECT * FROM penjualan r join produk p 
+                    $tampil=mysql_query("SELECT * FROM penjualan r join produk p
                     on (p.id_produk=r.id_produk)  order by nopenjualan asc");
                     $no = 1;
                       while ($r=mysql_fetch_array($tampil)){
@@ -50,10 +50,10 @@
                         <tr>
                         <td><?php echo "$no"?></td>
 
-                        <?php 
+                        <?php
                         $tglpenjualan=tgl_indo($r['tglpenjualan']);
                         $totalHarga = ($r[harga]*$r[itemterjual]); ?>
-                        
+
                         <td><?php echo "$tglpenjualan"?></td>
                         <td><?php echo "$r[nama_produk]"?></td>
                         <td><?php echo "Rp.". number_format("$r[harga]")?></td>
@@ -133,9 +133,9 @@
                       <?php
                       //memulai mengambil datanya
                       $sql = mysql_query("select * from penjualan");
-                      
+
                       $num = mysql_num_rows($sql);
-                      
+
                       if($num <> 0)
                       {
                       $kode = $num + 1;
@@ -143,7 +143,7 @@
                       {
                       $kode = 1;
                       }
-                      
+
                       //mulai bikin kode
                       $bikin_kode = str_pad($kode, 4, "0", STR_PAD_LEFT);
                       $tahun = date('Ym');
@@ -178,7 +178,7 @@
                       <label for="exampleInputEmail1">Jumlah Pembelian</label>
                       <input type="number" class="form-control" id="itemterjual" name="itemterjual" placeholder="Jumlah Pembelian" required data-fv-notempty-message="Tidak boleh kosong">
                     </div>
-                    
+
                   </div><!-- /.box-body -->
 
               </div><!-- /.box -->
@@ -186,7 +186,7 @@
 
               </div> <!-- /.row -->
 
-          
+
             <!-- Tombol Bagian Bawah -->
 
             <div class="row">
@@ -196,7 +196,7 @@
               <button type="submit" name ='add' class="btn btn-info">Simpan</button>
               &nbsp;
               <button type="reset" class="btn btn-success">Reset</button>
-                  
+
             </form>
                   </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -210,7 +210,7 @@
 
       <?php
       break;
-      
+
     // PROSES HAPUS DATA REALISASI //
       case 'delete':
       $ambilProduk = mysql_fetch_array(mysql_query("select * from penjualan r

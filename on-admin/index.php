@@ -225,14 +225,14 @@ session_start();
           "autoWidth": false,
           "responsive": true
         });
-        $('#example3').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                { "extend": 'pdf',
-                "text":'<span class="fa fa-file-pdf-o"> Cetak PDF </span>',
-                "className": 'btn btn-danger btn-xs', footer:true }
-        ]
-        });
+        // $('#example3').DataTable({
+        //     dom: 'Bfrtip',
+        //     buttons: [
+        //         { "extend": 'pdf',
+        //         "text":'<span class="fa fa-file-pdf-o"> Cetak PDF </span>',
+        //         "className": 'btn btn-danger btn-xs', footer:true }
+        // ]
+        // });
       });
     </script>
 

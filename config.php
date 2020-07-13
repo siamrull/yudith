@@ -4,6 +4,10 @@ define('DBHOST', 'localhost');
 define('DBUSER', 'u1025002_pencatatan');
 define('DBPASS', 'yudith123');
 define('DBNAME', 'u1025002_pencatatan');
+// define('DBHOST', 'localhost');
+// define('DBUSER', 'root');
+// define('DBPASS', '');
+// define('DBNAME', 'pencatatan');
 
 /**
  * $dbconnect : koneksi kedatabase

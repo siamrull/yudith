@@ -230,7 +230,7 @@ session_start();
             buttons: [
                 { "extend": 'pdf',
                 "text":'<span class="fa fa-file-pdf-o"> Cetak PDF </span>',
-                "className": 'btn btn-default btn-xs', footer:true }
+                "className": 'btn btn-danger btn-xs', footer:true }
         ]
         });
       });

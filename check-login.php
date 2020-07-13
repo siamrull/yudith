@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config/koneksi.php';
+require 'koneksi.php';
 
 if ( isset($_POST['username']) && isset($_POST['password']) ) {
 

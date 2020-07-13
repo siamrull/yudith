@@ -172,6 +172,8 @@ break;
                         }
                         ?>
 
+                        </tbody>
+                        <tfoot>
                         <tr>
                         <td class="total" align = "center" colspan="5"> <span style="font-weight:bold">TOTAL</span></td>
                         <?php
@@ -188,7 +190,7 @@ break;
                         <td align = "center"><span style="font-weight:bold"></td>
                         <td align = "center"><span style="font-weight:bold"><?php echo "Rp.". number_format("$liatHarga[total_penjualan]",'0','.','.')?></td>
                         </tr>
-                        </tbody>
+                        </tfoot>
                       </table>
                       </div><!-- /.box-body -->
                   </div>

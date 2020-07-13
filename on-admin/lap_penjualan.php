@@ -1,8 +1,8 @@
 <?php
 switch ($_GET['act']) {
-      
-  // PROSES VIEW DATA LAPORAN PENJUALAN //      
-      
+
+  // PROSES VIEW DATA LAPORAN PENJUALAN //
+
    case 'view':
 ?>
 <div class="content-wrapper">
@@ -30,7 +30,7 @@ switch ($_GET['act']) {
       <input class="form-control" id="date" name="tglpenjualanak" placeholder="MM/DD/YYY" type="text" required/>
       </div>
   </div>
-  
+
   <div class="col-md-2">
       <div class="form-group">
       <label for="exampleInputEmail1">Mulai Pencarian</label><br>
@@ -58,7 +58,7 @@ switch ($_GET['act']) {
                       </tr>
                     </thead>
                     <tbody>
-                    
+
                     <tr>
                     <td class="total" align = "center" colspan="5"> <span style="font-weight:bold">TOTAL</span></td>
                     <td><span style="font-weight:bold"><?php echo "Rp.$liatHarga[harga],-"?></td>
@@ -130,7 +130,7 @@ break;
                   <div class="box box-info">
                       <div class="box-body">
                       <div class="table-responsive">
-                      <table class="table table-hover responsive">
+                      <table id="example1" class="table table-hover responsive">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -156,9 +156,9 @@ break;
                             <td><?php echo "$no"?></td>
                             <td><?php echo "$r[nopenjualan]"?></td>
 
-                            <?php 
+                            <?php
                             $tglpenjualan=tgl_indo($r['tglpenjualan']);?>
-                            
+
                             <td align="center"><?php echo "$tglpenjualan"?></td>
                             <td align="center"><?php echo "$r[nama_produk]"?></td>
                             <td align="center"><?php echo "$r[stokproduk]"?></td>
@@ -175,15 +175,15 @@ break;
                         <tr>
                         <td class="total" align = "center" colspan="5"> <span style="font-weight:bold">TOTAL</span></td>
                         <?php
-                        
-                        $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan, 
-                        sum(harga) as harga_produk, sum(itemterjual) as itemterjual FROM penjualan r  
+
+                        $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan,
+                        sum(harga) as harga_produk, sum(itemterjual) as itemterjual FROM penjualan r
                         join produk p on (r.id_produk=p.id_produk)
-                        where 
-                        tglpenjualan BETWEEN '$_POST[tglpenjualanaw]' 
+                        where
+                        tglpenjualan BETWEEN '$_POST[tglpenjualanaw]'
                         AND  '$_POST[tglpenjualanak]' ORDER BY nopenjualan ASC"));
                         ?>
-            
+
                         <td align = "center"><span style="font-weight:bold"><?php echo "". number_format("$liatHarga[itemterjual]",'0','.','.')?></td>
                         <td align = "center"><span style="font-weight:bold"></td>
                         <td align = "center"><span style="font-weight:bold"><?php echo "Rp.". number_format("$liatHarga[total_penjualan]",'0','.','.')?></td>
@@ -203,7 +203,7 @@ break;
               <div class="box-body">
                   <div class="form-group">
                   <button type="submit" class="btn btn-danger">
-                  <i class="fa fa-file-pdf-o">   Simpan ke PDF</i>  
+                  <i class="fa fa-file-pdf-o">   Simpan ke PDF</i>
                   </button>
                   </div>
                   <div class="form-group">
@@ -220,7 +220,7 @@ break;
     </div><!-- /.content-wrapper -->
 
 <?php
-} else { 
+} else {
   ?>
   <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -239,7 +239,7 @@ break;
                   <?php
                   echo " <p> Maaf untuk pencarian yang anda cari tidak tersedia. <br>
                   Silahkan coba lakukan pencarian ulang. Terima Kasih </p>";
-                  
+
                   ?>
                   </div>
               </div>

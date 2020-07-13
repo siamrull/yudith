@@ -95,7 +95,6 @@
           </script>
           <script>window.location='?pg=penjualan&act=add'</script>";
         } else {
-
                 $query = mysql_query("INSERT INTO penjualan
                 VALUES ('$_POST[nopenjualan]',
                 '$_POST[tglpenjualan]','$_POST[id_produk]',
@@ -152,7 +151,7 @@
 
                       ?>
                       <label for="exampleInputEmail1">Nomor Penjualan</label>
-                      <input type="text" class="form-control" id="nopenj" name="nopenj" placeholder="Nomor Penjualan" value="<?php echo $kode_jadi?>" required data-fv-notempty-message="Tidak boleh kosong" disabled>
+                      <input type="text" class="form-control" id="nopenjualan" name="nopenjualan" placeholder="Nomor Penjualan" value="<?php echo $kode_jadi?>" required data-fv-notempty-message="Tidak boleh kosong" disabled>
                       <input type="hidden" class="form-control" id="nopenjualan" name="nopenjualan" placeholder="Nomor Penjualan" value="<?php echo $kode_jadi?>" required data-fv-notempty-message="Tidak boleh kosong">
                     </div>
                     <div class="form-group">

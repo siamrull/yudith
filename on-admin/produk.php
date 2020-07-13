@@ -98,9 +98,9 @@ error_reporting
        <?php
    break;
       // PROSES TAMBAH DATA PRODUK //
-      case 'add1':
+      case 'add':
 //proses
-    if(isset($_POST['add1'])) {
+    if(isset($_POST['add'])) {
     $nama_produk=$_POST['nama_produk'];
     $harga=$_POST['harga'];
     $stokproduk=$_POST['stokproduk'];

@@ -96,7 +96,8 @@
           <script>window.location='?pg=penjualan&act=add'</script>";
         } else {
 
-                $query = mysql_query("insert into penjualan values ('$_POST[nopenjualan]',
+                $query = mysql_query("INSERT INTO penjualan
+                VALUES ('$_POST[nopenjualan]',
                 '$_POST[tglpenjualan]','$_POST[id_produk]',
                 '$_POST[itemterjual]','$total_penjualan')");
 

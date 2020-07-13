@@ -71,7 +71,7 @@ session_start();
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-              
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -87,10 +87,10 @@ session_start();
                     <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
                     <p>
                       <?php echo" $_SESSION[namalengkap] "?> ADMIN
-                   
+
                     </p>
                   </li>
-                  
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-right">
@@ -104,7 +104,7 @@ session_start();
           </div>
         </nav>
       </header>
-      
+
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
 
@@ -117,24 +117,24 @@ session_start();
                 <i class="fa fa-dashboard"></i> <span>Beranda</span>
               </a>
             </li>
-                        
+
              <li class="treeview">
              <a href="?pg=produk&act=view">
-               <i class="fa fa-circle-o"></i> 
-                <span>Data Produk</span> 
+               <i class="fa fa-circle-o"></i>
+                <span>Data Produk</span>
               </a>
             </li>
 
             <li class="treeview">
               <a href="?pg=penjualan&act=view">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Data Pejualan</span> 
+                <span>Data Pejualan</span>
               </a>
             </li>
             <li class="treeview">
               <a href="?pg=lappj&act=view">
                 <i class="fa fa-files-o"></i>
-                <span>Laporan Penjualan</span> 
+                <span>Laporan Penjualan</span>
               </a>
             </li>
           </ul>
@@ -153,10 +153,10 @@ session_start();
         <div align="center" class="pull-center hidden-xs">
           <b><strong >Copyright &copy; 2020 <a href="webphpmysql.com"></a></strong></b>
         </div>
-        
+
       </footer>
 
-      
+
       <!-- Add the sidebar's background. This div must be placed
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
@@ -218,7 +218,7 @@ session_start();
         });
       });
     </script>
-    
+
     <!-- page script Select2 Elements -->
     <script>
       $(function () {
@@ -226,7 +226,7 @@ session_start();
         $(".select2").select2();
          });
     </script>
-    
+
     <!-- page script Submenu -->
     <script src="dist/js/bootstrap-submenu.min.js"></script>
 

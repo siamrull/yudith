@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'koneksi.php';
+require 'config.php';
 
 if ( isset($_POST['username']) && isset($_POST['password']) ) {
 
@@ -31,6 +31,7 @@ if ( isset($_POST['username']) && isset($_POST['password']) ) {
             $_SESSION['user_login'] = $level_user;
             $_SESSION['sess_id']    = $id_user;
             $_SESSION['nama']       = $nama;
+            $_SESSION['username']   = $username;
 
         }
 

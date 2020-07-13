@@ -228,7 +228,9 @@ session_start();
         $('#example3').DataTable({
             dom: 'Bfrtip',
             buttons: [
-            'pdf'
+                { "extend": 'pdf',
+                "text":'<span class="glyphicon glyphicon-pencil"></span>',
+                "className": 'btn btn-default btn-xs' }
         ]
         });
       });

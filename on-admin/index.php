@@ -230,7 +230,7 @@ session_start();
             buttons: [
                 { "extend": 'pdf',
                 "text":'<span class="glyphicon glyphicon-pencil"></span>',
-                "className": 'btn btn-default btn-xs' }
+                "className": 'btn btn-default btn-xs', footer:true }
         ]
         });
       });

@@ -1,5 +1,7 @@
 <?php
 // sesuai kan root file mPDF anda
+ini_set('max_execution_time', '300');
+ini_set("pcre.backtrack_limit", "5000000");
 $nama_dokumen='Laporan Penjualan MCC'; //Beri nama file PDF hasil.
 define('_MPDF_PATH','config/MPDF60/'); //sesuaikan dengan root folder anda
 include(_MPDF_PATH . "mpdf.php"); //includekan ke file mpdf
@@ -115,7 +117,7 @@ $tglpenjualanak = $_POST[tglpenjualanak];
 //Batas file sampe sini
 $html = ob_get_contents(); //Proses untuk mengambil hasil dari OB..
 ob_end_clean();
-ini_set("pcre.backtrack_limit", "1000000");
+
 //$stylesheet = file_get_contents('css/zebra.css');
 //Here convert the encode for UTF-8, if you prefer the ISO-8859-1 just change for $mpdf->WriteHTML($html);
 $mpdf->WriteHTML($stylesheet,1);

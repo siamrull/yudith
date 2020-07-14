@@ -32,7 +32,7 @@ masalah.-->
 
 // Koneksi ke database //
 
-error_reporting(0);
+// error_reporting();
 include "config/koneksi.php";
 include "config/fungsi_indotgl.php";
 
@@ -43,7 +43,7 @@ $tglpenjualanak = $_POST[tglpenjualanak];
 <p style="text-align:left;"> Periode (Tanggal <?php echo tgl_indo($tglpenjualanaw)?> S/D  <?php echo tgl_indo($tglpenjualanak) ?>) </p>
 
 <table cellspacing="5" cellpadding="5" border="1">
-                        
+
                           <tr>
                             <th>No</th>
                             <th>No Penjualan</th>
@@ -68,9 +68,9 @@ $tglpenjualanak = $_POST[tglpenjualanak];
                             <td><?php echo "$no"?></td>
                             <td><?php echo "$r[nopenjualan]"?></td>
 
-                            <?php 
+                            <?php
                             $tglpenjualan=tgl_indo($r['tglpenjualan']);?>
-                            
+
                             <td align="center"><?php echo "$tglpenjualan"?></td>
                             <td align="center"><?php echo "$r[nama_produk]"?></td>
                             <td align="center"><?php echo "$r[stokproduk]"?></td>
@@ -87,12 +87,12 @@ $tglpenjualanak = $_POST[tglpenjualanak];
                         <tr>
                         <td align = "center" colspan="5"> <span style="font-weight:bold">TOTAL</span></td>
                         <?php
-                        
-                        $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan, 
-                        sum(harga) as harga_produk, sum(itemterjual) as itemterjual  FROM penjualan r  
+
+                        $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan,
+                        sum(harga) as harga_produk, sum(itemterjual) as itemterjual  FROM penjualan r
                         join produk p on (r.id_produk=p.id_produk)
-                        where 
-                        tglpenjualan BETWEEN '$_POST[tglpenjualanaw]' 
+                        where
+                        tglpenjualan BETWEEN '$_POST[tglpenjualanaw]'
                         AND  '$_POST[tglpenjualanak]' ORDER BY nopenjualan ASC"));
                         ?>
 
@@ -102,9 +102,9 @@ $tglpenjualanak = $_POST[tglpenjualanak];
                         </tr>
                         </tbody>
                       </table>
-                      
+
                       <br> <br>
-                      <?php 
+                      <?php
                       $tanggal =tgl_indo(date('Y-m-d'));
                       ?>
                       <p style="margin: 50px 8px 5px 460px;"> Bekasi, <?php echo "$tanggal"?>

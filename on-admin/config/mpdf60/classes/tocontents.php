@@ -27,19 +27,16 @@ var $TOC_even_header_value;
 var $TOC_odd_footer_value;
 var $TOC_even_footer_value;
 var $TOC_page_selector;
-var $TOC_resetpagenum;	// mPDF 6
-var $TOC_pagenumstyle;	// mPDF 6
-var $TOC_suppress;	// mPDF 6
-var $m_TOC; 
+var $m_TOC;
 
-function tocontents(&$mpdf) {
+function __construct(&$mpdf) {
 	$this->mpdf = $mpdf;
 	$this->_toc=array();
 	$this->TOCmark = 0;
 	$this->m_TOC=array();
 }
 
-function TOCpagebreak($tocfont='', $tocfontsize='', $tocindent='', $TOCusePaging=true, $TOCuseLinking='', $toc_orientation='', $toc_mgl='',$toc_mgr='',$toc_mgt='',$toc_mgb='',$toc_mgh='',$toc_mgf='',$toc_ohname='',$toc_ehname='',$toc_ofname='',$toc_efname='',$toc_ohvalue=0,$toc_ehvalue=0,$toc_ofvalue=0, $toc_efvalue=0, $toc_preHTML='', $toc_postHTML='', $toc_bookmarkText='', $resetpagenum='', $pagenumstyle='', $suppress='', $orientation='', $mgl='',$mgr='',$mgt='',$mgb='',$mgh='',$mgf='',$ohname='',$ehname='',$ofname='',$efname='',$ohvalue=0,$ehvalue=0,$ofvalue=0,$efvalue=0, $toc_id=0, $pagesel='', $toc_pagesel='', $sheetsize='', $toc_sheetsize='', $tocoutdent='', $toc_resetpagenum='', $toc_pagenumstyle='', $toc_suppress='') {	// mPDF 5.6.19	// mPDF 6
+function TOCpagebreak($tocfont='', $tocfontsize='', $tocindent='', $TOCusePaging=true, $TOCuseLinking='', $toc_orientation='', $toc_mgl='',$toc_mgr='',$toc_mgt='',$toc_mgb='',$toc_mgh='',$toc_mgf='',$toc_ohname='',$toc_ehname='',$toc_ofname='',$toc_efname='',$toc_ohvalue=0,$toc_ehvalue=0,$toc_ofvalue=0, $toc_efvalue=0, $toc_preHTML='', $toc_postHTML='', $toc_bookmarkText='', $resetpagenum='', $pagenumstyle='', $suppress='', $orientation='', $mgl='',$mgr='',$mgt='',$mgb='',$mgh='',$mgf='',$ohname='',$ehname='',$ofname='',$efname='',$ohvalue=0,$ehvalue=0,$ofvalue=0,$efvalue=0, $toc_id=0, $pagesel='', $toc_pagesel='', $sheetsize='', $toc_sheetsize='', $tocoutdent='') {	// mPDF 5.6.19
 		if (strtoupper($toc_id)=='ALL') { $toc_id = '_mpdf_all'; }
 		else if (!$toc_id) { $toc_id = 0; }
 		else { $toc_id = strtolower($toc_id); }
@@ -48,7 +45,7 @@ function TOCpagebreak($tocfont='', $tocfontsize='', $tocindent='', $TOCusePaging
 		else { $TOCusePaging = true; }
 		if (!$TOCuseLinking) { $TOCuseLinking = false; }
 		if ($toc_id) {
-			$this->m_TOC[$toc_id]['TOCmark'] = $this->mpdf->page; 
+			$this->m_TOC[$toc_id]['TOCmark'] = $this->mpdf->page;
 			$this->m_TOC[$toc_id]['TOCoutdent'] = $tocoutdent;
 			$this->m_TOC[$toc_id]['TOCorientation'] = $toc_orientation;
 			$this->m_TOC[$toc_id]['TOCuseLinking'] = $TOCuseLinking;
@@ -73,13 +70,10 @@ function TOCpagebreak($tocfont='', $tocfontsize='', $tocindent='', $TOCusePaging
 			$this->m_TOC[$toc_id]['TOC_odd_footer_value'] = $toc_ofvalue;
 			$this->m_TOC[$toc_id]['TOC_even_footer_value'] = $toc_efvalue;
 			$this->m_TOC[$toc_id]['TOC_page_selector'] = $toc_pagesel;
-			$this->m_TOC[$toc_id]['TOC_resetpagenum'] = $toc_resetpagenum;	// mPDF 6
-			$this->m_TOC[$toc_id]['TOC_pagenumstyle'] = $toc_pagenumstyle;	// mPDF 6
-			$this->m_TOC[$toc_id]['TOC_suppress'] = $toc_suppress;	// mPDF 6
 			$this->m_TOC[$toc_id]['TOCsheetsize'] = $toc_sheetsize;
 		}
 		else {
-			$this->TOCmark = $this->mpdf->page; 
+			$this->TOCmark = $this->mpdf->page;
 			$this->TOCoutdent = $tocoutdent;
 			$this->TOCorientation = $toc_orientation;
 			$this->TOCuseLinking = $TOCuseLinking;
@@ -104,15 +98,12 @@ function TOCpagebreak($tocfont='', $tocfontsize='', $tocindent='', $TOCusePaging
 			$this->TOC_odd_footer_value = $toc_ofvalue;
 			$this->TOC_even_footer_value = $toc_efvalue;
 			$this->TOC_page_selector = $toc_pagesel;
-			$this->TOC_resetpagenum = $toc_resetpagenum;	// mPDF 6
-			$this->TOC_pagenumstyle = $toc_pagenumstyle;	// mPDF 6
-			$this->TOC_suppress = $toc_suppress;	// mPDF 6
 			$this->TOCsheetsize = $toc_sheetsize;
 		}
 }
 
 // Initiate, and Mark a place for the Table of Contents to be inserted
-function TOC($tocfont='', $tocfontsize=0, $tocindent=0, $resetpagenum='', $pagenumstyle='', $suppress='', $toc_orientation='', $TOCusePaging=true, $TOCuseLinking=false, $toc_id=0, $tocoutdent='', $toc_resetpagenum='', $toc_pagenumstyle='', $toc_suppress='') {	// mPDF 5.6.19	// mPDF 6
+function TOC($tocfont='', $tocfontsize=0, $tocindent=0, $resetpagenum='', $pagenumstyle='', $suppress='', $toc_orientation='', $TOCusePaging=true, $TOCuseLinking=false, $toc_id=0, $tocoutdent='') {	// mPDF 5.6.19) {
 		if (strtoupper($toc_id)=='ALL') { $toc_id = '_mpdf_all'; }
 		else if (!$toc_id) { $toc_id = 0; }
 		else { $toc_id = strtolower($toc_id); }
@@ -124,28 +115,22 @@ function TOC($tocfont='', $tocfontsize=0, $tocindent=0, $resetpagenum='', $pagen
 			}
 			$this->mpdf->AddPage($this->mpdf->CurOrientation,'',$resetpagenum, $pagenumstyle, $suppress);
 		}
-		else { 
+		else {
 			$this->mpdf->PageNumSubstitutions[] = array('from'=>$this->mpdf->page, 'reset'=> $resetpagenum, 'type'=>$pagenumstyle, 'suppress'=>$suppress);
 		}
 		if ($toc_id) {
-			$this->m_TOC[$toc_id]['TOCmark'] = $this->mpdf->page; 
+			$this->m_TOC[$toc_id]['TOCmark'] = $this->mpdf->page;
 			$this->m_TOC[$toc_id]['TOCoutdent'] = $tocoutdent;
 			$this->m_TOC[$toc_id]['TOCorientation'] = $toc_orientation;
 			$this->m_TOC[$toc_id]['TOCuseLinking'] = $TOCuseLinking;
 			$this->m_TOC[$toc_id]['TOCusePaging'] = $TOCusePaging;
-			$this->m_TOC[$toc_id]['TOC_resetpagenum'] = $toc_resetpagenum;	// mPDF 6
-			$this->m_TOC[$toc_id]['TOC_pagenumstyle'] = $toc_pagenumstyle;	// mPDF 6
-			$this->m_TOC[$toc_id]['TOC_suppress'] = $toc_suppress;	// mPDF 6
 		}
 		else {
-			$this->TOCmark = $this->mpdf->page; 
+			$this->TOCmark = $this->mpdf->page;
 			$this->TOCoutdent = $tocoutdent;
 			$this->TOCorientation = $toc_orientation;
 			$this->TOCuseLinking = $TOCuseLinking;
 			$this->TOCusePaging = $TOCusePaging;
-			$this->TOC_resetpagenum = $toc_resetpagenum;	// mPDF 6
-			$this->TOC_pagenumstyle = $toc_pagenumstyle;	// mPDF 6
-			$this->TOC_suppress = $toc_suppress;	// mPDF 6
 		}
 }
 
@@ -170,7 +155,7 @@ function insertTOC() {
 	for ($toci = 0; $toci<$notocs; $toci++) {
 		if ($toci==0 && $this->TOCmark) {
 			$toc_id = 0;
-			$toc_page = $this->TOCmark; 
+			$toc_page = $this->TOCmark;
 			$tocoutdent = $this->TOCoutdent;
 			$toc_orientation = $this->TOCorientation;
 			$TOCuseLinking = $this->TOCuseLinking;
@@ -193,10 +178,7 @@ function insertTOC() {
 			$toc_ofvalue = $this->TOC_odd_footer_value;
 			$toc_efvalue = $this->TOC_even_footer_value;
 			$toc_page_selector = $this->TOC_page_selector;
-			$toc_resetpagenum = $this->TOC_resetpagenum;	// mPDF 6
-			$toc_pagenumstyle = $this->TOC_pagenumstyle;	// mPDF 6
-			$toc_suppress = $this->TOC_suppress;	// mPDF 6
-			$toc_sheet_size = (isset($this->TOCsheetsize) ? $this->TOCsheetsize : '');
+			$toc_sheet_size = $this->TOCsheetsize;
 		}
 		else {
 			$arr = current($this->m_TOC);
@@ -228,31 +210,19 @@ function insertTOC() {
 			$toc_ofvalue = $this->m_TOC[$toc_id]['TOC_odd_footer_value'];
 			$toc_efvalue = $this->m_TOC[$toc_id]['TOC_even_footer_value'];
 			$toc_page_selector = $this->m_TOC[$toc_id]['TOC_page_selector'];
-			$toc_resetpagenum = $this->m_TOC[$toc_id]['TOC_resetpagenum'];	// mPDF 6
-			$toc_pagenumstyle = $this->m_TOC[$toc_id]['TOC_pagenumstyle'];	// mPDF 6
-			$toc_suppress = $this->m_TOC[$toc_id]['TOC_suppress'];	// mPDF 6
-			$toc_sheet_size = (isset($this->m_TOC[$toc_id]['TOCsheetsize']) ? $this->m_TOC[$toc_id]['TOCsheetsize'] : '');
+			$toc_sheet_size = $this->m_TOC[$toc_id]['TOCsheetsize'];
 			next($this->m_TOC);
 		}
 
 		// mPDF 5.6.31
+
 		if (!$toc_orientation) { $toc_orientation= $this->mpdf->DefOrientation; }
-
-		//  mPDF 6 number style and suppress now picked up from section preceding ToC
-		list($tp_pagenumstyle, $tp_suppress, $tp_reset) = $this->mpdf->docPageSettings($toc_page-1);
-
-		if ($toc_resetpagenum) $tp_reset = $toc_resetpagenum;	// mPDF 6
-		if ($toc_pagenumstyle) $tp_pagenumstyle = $toc_pagenumstyle;	// mPDF 6
-		if ($toc_suppress || $toc_suppress==='0') $tp_suppress = $toc_suppress;	// mPDF 6
-
-		$this->mpdf->AddPage($toc_orientation, '', $tp_reset, $tp_pagenumstyle, $tp_suppress, $toc_mgl, $toc_mgr, $toc_mgt, $toc_mgb, $toc_mgh, $toc_mgf, $toc_ohname, $toc_ehname, $toc_ofname, $toc_efname, $toc_ohvalue, $toc_ehvalue, $toc_ofvalue, $toc_efvalue, $toc_page_selector, $toc_sheet_size ); // mPDF 6
-
+		$this->mpdf->AddPage($toc_orientation, '', '', '', "on", $toc_mgl, $toc_mgr, $toc_mgt, $toc_mgb, $toc_mgh, $toc_mgf, $toc_ohname, $toc_ehname, $toc_ofname, $toc_efname, $toc_ohvalue, $toc_ehvalue, $toc_ofvalue, $toc_efvalue, $toc_page_selector, $toc_sheet_size );
 
 		$this->mpdf->writingToC = true;	// mPDF 5.6.38
 		// mPDF 5.6.31
 		$tocstart=count($this->mpdf->pages);
-		if (isset($toc_preHTML) && $toc_preHTML) { $this->mpdf->WriteHTML($toc_preHTML); }
-
+		if ($toc_preHTML) { $this->mpdf->WriteHTML($toc_preHTML); }
 
 		// mPDF 5.6.19
 		$html ='<div class="mpdf_toc" id="mpdf_toc_'.$toc_id.'">';
@@ -269,12 +239,12 @@ function insertTOC() {
 				if ($TOCuseLinking) { $html .= '</a>'; }
 			}
 			$html .= '</div>';
-		 } 
+		 }
 		}
 		$html .= '</div>';
 		$this->mpdf->WriteHTML($html);
 
-		if (isset($toc_postHTML) && $toc_postHTML) { $this->mpdf->WriteHTML($toc_postHTML); }
+		if ($toc_postHTML) { $this->mpdf->WriteHTML($toc_postHTML); }
 		$this->mpdf->writingToC = false;	// mPDF 5.6.38
 		$this->mpdf->AddPage($toc_orientation,'E');
 
@@ -312,7 +282,7 @@ function insertTOC() {
 	for ($toci = 0; $toci<$notocs; $toci++) {
 		if ($toci==0 && $this->TOCmark) {
 			$toc_id = 0;
-			$toc_page = $this->TOCmark + $added_toc_pages; 
+			$toc_page = $this->TOCmark + $added_toc_pages;
 			$toc_orientation = $this->TOCorientation;
 			$TOCuseLinking = $this->TOCuseLinking;
 			$TOCusePaging = $this->TOCusePaging;
@@ -386,7 +356,7 @@ function openTagTOC($attr) {
 	if (isset($attr['LINKS']) && (strtoupper($attr['LINKS'])=='ON' || $attr['LINKS']==1)) { $links = true; }
 	else { $links = false; }
 	if (isset($attr['NAME']) && $attr['NAME']) { $toc_id = strtolower($attr['NAME']); } else { $toc_id = 0; }
-	$this->TOC('',0,0,$resetpagenum, $pagenumstyle, $suppress, $toc_orientation, $paging, $links, $toc_id, $tocoutdent);  // mPDF 5.6.19 5.6.31 
+	$this->TOC('',0,0,$resetpagenum, $pagenumstyle, $suppress, $toc_orientation, $paging, $links, $toc_id, $tocoutdent);  // mPDF 5.6.19 5.6.31
 }
 
 
@@ -421,12 +391,6 @@ function openTagTOCPAGEBREAK($attr) {
 	  else if (isset($attr['TOC-ODD-FOOTER-VALUE']) && ($attr['TOC-ODD-FOOTER-VALUE']=='-1' || strtoupper($attr['TOC-ODD-FOOTER-VALUE'])=='OFF')) { $this->m_TOC[$toc_id]['TOC_odd_footer_value'] = -1; }
 	  if (isset($attr['TOC-EVEN-FOOTER-VALUE']) && ($attr['TOC-EVEN-FOOTER-VALUE']=='1' || strtoupper($attr['TOC-EVEN-FOOTER-VALUE'])=='ON')) { $this->m_TOC[$toc_id]['TOC_even_footer_value'] = 1; }
 	  else if (isset($attr['TOC-EVEN-FOOTER-VALUE']) && ($attr['TOC-EVEN-FOOTER-VALUE']=='-1' || strtoupper($attr['TOC-EVEN-FOOTER-VALUE'])=='OFF')) { $this->m_TOC[$toc_id]['TOC_even_footer_value'] = -1; }
-	  if (isset($attr['TOC-RESETPAGENUM']) && $attr['TOC-RESETPAGENUM']) { $this->m_TOC[$toc_id]['TOC_resetpagenum'] = $attr['TOC-RESETPAGENUM']; }
-	  else { $this->m_TOC[$toc_id]['TOC_resetpagenum'] = ''; }	// mPDF 6
-	  if (isset($attr['TOC-PAGENUMSTYLE']) && $attr['TOC-PAGENUMSTYLE']) { $this->m_TOC[$toc_id]['TOC_pagenumstyle'] = $attr['TOC-PAGENUMSTYLE']; }
-	  else { $this->m_TOC[$toc_id]['TOC_pagenumstyle'] = ''; }	// mPDF 6
-	  if (isset($attr['TOC-SUPPRESS']) && ($attr['TOC-SUPPRESS'] || $attr['TOC-SUPPRESS']==='0')) { $this->m_TOC[$toc_id]['TOC_suppress'] = $attr['TOC-SUPPRESS']; }
-	  else { $this->m_TOC[$toc_id]['TOC_suppress'] = ''; }	// mPDF 6
 	  if (isset($attr['TOC-PAGE-SELECTOR']) && $attr['TOC-PAGE-SELECTOR']) { $this->m_TOC[$toc_id]['TOC_page_selector'] = $attr['TOC-PAGE-SELECTOR']; }
 	  else { $this->m_TOC[$toc_id]['TOC_page_selector'] = ''; }
 	  if (isset($attr['TOC-SHEET-SIZE']) && $attr['TOC-SHEET-SIZE']) { $this->m_TOC[$toc_id]['TOCsheetsize'] = $attr['TOC-SHEET-SIZE']; } else { $this->m_TOC[$toc_id]['TOCsheetsize'] = ''; }
@@ -434,7 +398,7 @@ function openTagTOCPAGEBREAK($attr) {
 
 	  if (isset($attr['TOC-PREHTML']) && $attr['TOC-PREHTML']) { $this->m_TOC[$toc_id]['TOCpreHTML'] = htmlspecialchars_decode($attr['TOC-PREHTML'],ENT_QUOTES); }
 	  if (isset($attr['TOC-POSTHTML']) && $attr['TOC-POSTHTML']) { $this->m_TOC[$toc_id]['TOCpostHTML'] = htmlspecialchars_decode($attr['TOC-POSTHTML'],ENT_QUOTES); }
-	  
+
 	  if (isset($attr['TOC-BOOKMARKTEXT']) && $attr['TOC-BOOKMARKTEXT']) { $this->m_TOC[$toc_id]['TOCbookmarkText'] = htmlspecialchars_decode($attr['TOC-BOOKMARKTEXT'],ENT_QUOTES); }	// *BOOKMARKS*
 	}
 	else {
@@ -469,24 +433,18 @@ function openTagTOCPAGEBREAK($attr) {
 	  else if (isset($attr['TOC-EVEN-FOOTER-VALUE']) && ($attr['TOC-EVEN-FOOTER-VALUE']=='-1' || strtoupper($attr['TOC-EVEN-FOOTER-VALUE'])=='OFF')) { $this->TOC_even_footer_value = -1; }
 	  if (isset($attr['TOC-PAGE-SELECTOR']) && $attr['TOC-PAGE-SELECTOR']) { $this->TOC_page_selector = $attr['TOC-PAGE-SELECTOR']; }
 	  else { $this->TOC_page_selector = ''; }
-	  if (isset($attr['TOC-RESETPAGENUM']) && $attr['TOC-RESETPAGENUM']) { $this->TOC_resetpagenum = $attr['TOC-RESETPAGENUM']; }
-	  else { $this->TOC_resetpagenum = ''; }	// mPDF 6
-	  if (isset($attr['TOC-PAGENUMSTYLE']) && $attr['TOC-PAGENUMSTYLE']) { $this->TOC_pagenumstyle = $attr['TOC-PAGENUMSTYLE']; }
-	  else { $this->TOC_pagenumstyle = ''; }	// mPDF 6
-	  if (isset($attr['TOC-SUPPRESS']) && ($attr['TOC-SUPPRESS'] || $attr['TOC-SUPPRESS']==='0')) { $this->TOC_suppress = $attr['TOC-SUPPRESS']; }
-	  else { $this->TOC_suppress = ''; }	// mPDF 6
 	  if (isset($attr['TOC-SHEET-SIZE']) && $attr['TOC-SHEET-SIZE']) { $this->TOCsheetsize = $attr['TOC-SHEET-SIZE']; } else { $this->TOCsheetsize = ''; }
 
 	  if (isset($attr['TOC-PREHTML']) && $attr['TOC-PREHTML']) { $this->TOCpreHTML = htmlspecialchars_decode($attr['TOC-PREHTML'],ENT_QUOTES); }
 	  if (isset($attr['TOC-POSTHTML']) && $attr['TOC-POSTHTML']) { $this->TOCpostHTML = htmlspecialchars_decode($attr['TOC-POSTHTML'],ENT_QUOTES); }
-	  if (isset($attr['TOC-BOOKMARKTEXT']) && $attr['TOC-BOOKMARKTEXT']) { $this->TOCbookmarkText = htmlspecialchars_decode($attr['TOC-BOOKMARKTEXT'],ENT_QUOTES); }	
+	  if (isset($attr['TOC-BOOKMARKTEXT']) && $attr['TOC-BOOKMARKTEXT']) { $this->TOCbookmarkText = htmlspecialchars_decode($attr['TOC-BOOKMARKTEXT'],ENT_QUOTES); }
 	}
 
-	if ($this->mpdf->y == $this->mpdf->tMargin && (!$this->mpdf->mirrorMargins ||($this->mpdf->mirrorMargins && $this->mpdf->page % 2==1))) { 
+	if ($this->mpdf->y == $this->mpdf->tMargin && (!$this->mpdf->mirrorMargins ||($this->mpdf->mirrorMargins && $this->mpdf->page % 2==1))) {
 		if ($toc_id) { $this->m_TOC[$toc_id]['TOCmark'] = $this->mpdf->page; }
 		else { $this->TOCmark = $this->mpdf->page; }
 		// Don't add a page
-		if ($this->mpdf->page==1 && count($this->mpdf->PageNumSubstitutions)==0) { 
+		if ($this->mpdf->page==1 && count($this->mpdf->PageNumSubstitutions)==0) {
 			$resetpagenum = '';
 			$pagenumstyle = '';
 			$suppress = '';

@@ -1,9 +1,11 @@
 <?php
 // sesuai kan root file mPDF anda
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $nama_dokumen='Laporan Penjualan MCC'; //Beri nama file PDF hasil.
 define('_MPDF_PATH','config/MPDF60/'); //sesuaikan dengan root folder anda
 include(_MPDF_PATH . "mpdf.php"); //includekan ke file mpdf
-include_once('config/mpdf60/mpdf.php');
+
 $mpdf=new mPDF('utf-8', 'A4'); // Create new mPDF Document
 $mpdf->pdf_version = '1.5';
 //Beginning Buffer to save PHP variables and HTML tags

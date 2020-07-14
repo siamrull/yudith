@@ -236,32 +236,37 @@ session_start();
             "responsive": true,
             buttons: [
             {
-            "title": "LAPORAN PENJUALAN PUSAT CLOTHING",
+            "title": "LAPORAN PENJUALAN PUSAT CLOTHING ",
             "extend": 'pdf',
             "text":'<span class="fa fa-file-pdf-o">Cetak PDF</span>',
             "className": 'btn btn-danger',
             customize: function(doc) {
-            // doc.defaultStyle.font-family = 'Times New Roman',
+            doc.styles.tableBodyEven.alignment = 'center';
+            doc.styles.tableBodyOdd.alignment = 'center';
             doc.content.splice(0, 1, {
             text: [{
                 text: 'LAPORAN PEJUALAN \n',
                 bold: true,
                 fontSize: 20,
             }, {
-                text: ' PUSAT CLOTHING \n',
+                text: ' PUSAT CLOTHING  \n',
+                bold: true,
+                fontSize: 20,
+            }, {
+                text: ' PERIODE '+$('#tglpenjualanaw').val()+' S/D '+$('#tglpenjualanaw').val(),
                 bold: true,
                 fontSize: 20,
             }],
             margin: [0, 0, 0, 12],
             alignment: 'center'
             });
+
+
             },
             footer: true,
             },
 
         ],
-
-
         });
 
       });

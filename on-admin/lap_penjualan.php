@@ -130,7 +130,7 @@ break;
                   <div class="box box-info">
                       <div class="box-body">
                       <div class="table-responsive">
-                      <table id="example3" class="table table-hover responsive">
+                      <table id="example3" class="table table-hover responsive text-center no-textwarp">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -180,7 +180,7 @@ break;
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td> <span style="font-weight:bold">TOTAL</span></td>
+                        <td class="total" align = "center"> <span style="font-weight:bold">TOTAL</span></td>
                         <?php
 
                         $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan,

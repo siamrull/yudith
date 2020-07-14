@@ -253,9 +253,9 @@ session_start();
                 bold: true,
                 fontSize: 20,
             }, {
-                text: ' PERIODE '+$('#tglpenjualanaw').val()+' S/D '+$('#tglpenjualanaw').val(),
+                text: ' PERIODE '+$('#tglpenjualanaw').val()+' S/D '+$('#tglpenjualanak').val(),
                 bold: true,
-                fontSize: 20,
+                fontSize: 15,
             }],
             margin: [0, 0, 0, 12],
             alignment: 'center'

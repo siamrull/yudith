@@ -1,10 +1,8 @@
 <?php
-
-include_once "parser-php-version.php";
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pencatatan";
+$database = "aplikasi";
 
 // Koneksi dan memilih database di server
 mysql_connect($server,$username,$password) or die("Koneksi gagal");

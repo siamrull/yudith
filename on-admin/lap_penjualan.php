@@ -210,7 +210,7 @@ break;
       </div>
         <!-- /.row (main row) -->
 
-      <div class="row">
+      <!-- <div class="row">
               <div class="col-md-4 col-md-offset-8">
               <form role="form" action="cetak_pdf.php" method="POST" target="_blank">
               <div class="box-body">
@@ -226,7 +226,7 @@ break;
               </form>
           </div>
           </div>
-          </div>
+          </div> -->
 
     </section> <!-- /.content -->
     </div><!-- /.container -->

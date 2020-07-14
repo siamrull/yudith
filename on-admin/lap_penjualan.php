@@ -38,6 +38,12 @@ switch ($_GET['act']) {
       </div>
   </div>
   </form>
+  <?php
+  $tglpenjualanaw = $_POST[tglpenjualanaw];
+  $tglpenjualanak = $_POST[tglpenjualanak];
+    $tglpenjualan1=tgl_ind($tglpenjualanaw);
+    $tglpenjualan2=tgl_indo($tglpenjualanak);
+    ?>
 
   <div class="col-md-12">
               <!-- general form elements -->
@@ -109,12 +115,12 @@ break;
           <div class="form-group">
           <label for="exampleInputEmail1">Tanggal Penjualan Awal</label>
           <input class="form-control" id="date" name="tglpenjualanaw" placeholder="MM/DD/YYY" type="text" required/>
-          </div>
-      </div>
-      <div class="col-md-5">
-          <div class="form-group">
-          <label for="exampleInputEmail1">Tanggal Penjualan Akhir</label>
-          <input class="form-control" id="date" name="tglpenjualanak" placeholder="MM/DD/YYY" type="text" required/>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Tanggal Penjualan Akhir</label>
+            <input class="form-control" id="date" name="tglpenjualanak" placeholder="MM/DD/YYY" type="text" required/>
           </div>
       </div>
       <div class="col-md-2">
@@ -214,8 +220,8 @@ break;
                   </button>
                   </div>
                   <div class="form-group">
-                  <input type="hidden" class="form-control" id="tglpenjualanaw" name="tglpenjualanaw" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanaw']?>">
-                  <input type="hidden" class="form-control" id="tglpenjualanak" name="tglpenjualanak" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanak']?>">
+                  <input type="hidden" class="form-control" id="tglpenjualanaw" name="ptglpenjualanaw" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanaw']?>">
+                  <input type="hidden" class="form-control" id="tglpenjualanak" name="ptglpenjualanak" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanak']?>">
                   </div>
               </form>
           </div>

@@ -4,7 +4,7 @@ $nama_dokumen='Laporan Penjualan MCC'; //Beri nama file PDF hasil.
 define('_MPDF_PATH','config/MPDF60/'); //sesuaikan dengan root folder anda
 include(_MPDF_PATH . "mpdf.php"); //includekan ke file mpdf
 $mpdf=new mPDF('utf-8', 'A4'); // Create new mPDF Document
-$mpdf->debug = true;
+$mpdf->pdf_version = '1.5';
 //Beginning Buffer to save PHP variables and HTML tags
 ob_start();
 
@@ -119,7 +119,7 @@ ob_end_clean();
 //$stylesheet = file_get_contents('css/zebra.css');
 //Here convert the encode for UTF-8, if you prefer the ISO-8859-1 just change for $mpdf->WriteHTML($html);
 $mpdf->WriteHTML($stylesheet,1);
-$mpdf->WriteHTML($html);
+$mpdf->WriteHTML(utf8_encode($html));
 $mpdf->Output($nama_dokumen.".pdf" ,'I');
 exit;
 ?>

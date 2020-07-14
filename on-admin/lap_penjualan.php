@@ -38,12 +38,6 @@ switch ($_GET['act']) {
       </div>
   </div>
   </form>
-  <?php
-  $tglpenjualanaw = $_POST[tglpenjualanaw];
-  $tglpenjualanak = $_POST[tglpenjualanak];
-    $tglpenjualan1=tgl_ind($tglpenjualanaw);
-    $tglpenjualan2=tgl_indo($tglpenjualanak);
-    ?>
 
   <div class="col-md-12">
               <!-- general form elements -->
@@ -210,14 +204,14 @@ break;
       </div>
         <!-- /.row (main row) -->
 
-      <!-- <div class="row">
+      <div class="row">
               <div class="col-md-4 col-md-offset-8">
               <form role="form" action="cetak_pdf.php" method="POST" target="_blank">
               <div class="box-body">
                   <div class="form-group">
-                  <button type="submit" class="btn btn-danger">
+                  <!-- <button type="submit" class="btn btn-danger">
                   <i class="fa fa-file-pdf-o">   Simpan ke PDF</i>
-                  </button>
+                  </button> -->
                   </div>
                   <div class="form-group">
                   <input type="hidden" class="form-control" id="tglpenjualanaw" name="ptglpenjualanaw" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanaw']?>">
@@ -226,7 +220,7 @@ break;
               </form>
           </div>
           </div>
-          </div> -->
+          </div>
 
     </section> <!-- /.content -->
     </div><!-- /.container -->

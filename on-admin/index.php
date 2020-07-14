@@ -253,7 +253,7 @@ session_start();
                 bold: true,
                 fontSize: 20,
             }, {
-                text: ' PERIODE TANGGAL ('+$('#tglpenjualanaw').val()+' S/D '+$('#tglpenjualanak').val()+')',
+                text: ' PERIODE '+$('#tglpenjualanaw').val()+' S/D '+$('#tglpenjualanak').val(),
                 bold: true,
                 fontSize: 15,
             }],

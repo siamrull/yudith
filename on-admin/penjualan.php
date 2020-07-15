@@ -19,8 +19,8 @@
 
 <!-- Main content -->
 <section class="content">
-  <div class="row">
-    <div class="col-md-12">
+	<div class="row">
+		<div class="col-md-12">
     <div class="box-header">
     <a href="?pg=penjualan&act=add"> <button type="button" class="btn btn-info"><i class = "fa fa-plus"> Tambah Data </i></button> </a>
     </div><!-- /.box-header -->
@@ -33,7 +33,7 @@
                       <tr>
                         <th>No</th>
                         <th>Tanggal Penjualan</th>
-                        <th>Nama Produk</th>
+                        <th>Nama Barang</th>
                         <th>Harga Satuan</th>
                         <th>Jumlah Pembelian(Item)</th>
                         <th>Total Harga</th>
@@ -72,7 +72,7 @@
               </div>
               </div><!-- /.box -->
               </div> <!-- /.col -->
-  </div>
+	</div>
     <!-- /.row (main row) -->
 </section> <!-- /.content -->
     </div><!-- /.container -->
@@ -103,7 +103,7 @@
                 mysql_query("update produk set stokproduk = '$sisaStok'
                              where id_produk = '$_POST[id_produk]'");
                 echo "<script>window.alert('Data Berhasil DI Simpan')
-        window.location='?pg=penjualan&act=view'</script>";
+				window.location='?pg=penjualan&act=view'</script>";
               }
             }
               ?>

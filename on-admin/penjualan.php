@@ -85,7 +85,7 @@
       if (isset($_POST['add'])) {
 
         $ambilProduk = mysqli_fetch_array(mysqli_query($con,"select * from produk where id_produk = '$_POST[id_produk]'"));
-
+        $tglpenjualan=$_POST['tglpenjualan'];
         $total_penjualan = $_POST[itemterjual] * $ambilProduk[harga];
         $sisaStok = $ambilProduk[stokproduk] - $_POST[itemterjual];
 

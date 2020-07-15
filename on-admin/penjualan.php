@@ -218,7 +218,7 @@
 
       $stokproduk = $ambilProduk[itemterjual] + $ambilProduk[stokproduk];
 
-      mysql_queryi($con,"update produk set stokproduk = '$stokproduk'
+      mysqli_query($con,"update produk set stokproduk = '$stokproduk'
                     where id_produk = '$ambilProduk[id_produk]'");
 
       mysqli_query($con,"DELETE FROM penjualan WHERE nopenjualan='$_GET[id]'");

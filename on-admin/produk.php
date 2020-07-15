@@ -202,7 +202,7 @@ error_reporting
       $d = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM produk WHERE id_produk='$_GET[id]'"));
             if (isset($_POST['update'])) {
 
-                mysqliquery($con,"UPDATE produk SET nama_produk='$_POST[nama_produk]',
+                mysqli_query($con,"UPDATE produk SET nama_produk='$_POST[nama_produk]',
                   harga='$_POST[harga]',stokproduk='$_POST[stokproduk]',satuan='$_POST[satuan]',tglmasuk='$_POST[tglmasuk]' WHERE id_produk='$_POST[id]'");
                 echo "<script>window.location='?pg=produk&act=view'</script>";
           }

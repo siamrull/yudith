@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "config/koneksi.php";
+require 'config.php';
 
 if ( isset($_POST['username']) && isset($_POST['password']) ) {
 
@@ -14,7 +14,7 @@ if ( isset($_POST['username']) && isset($_POST['password']) ) {
                        password=?
                   LIMIT 1";
 
-    $check_log = $dbconnect->prepare($sql_check);
+    $check_log = $con->prepare($sql_check);
     $check_log->bind_param('ss', $username, $password);
 
     $username = $_POST['username'];

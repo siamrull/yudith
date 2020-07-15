@@ -1,19 +1,23 @@
+
+
+
 <?php
+$con = mysqli_connect("localhost","root","","pencatatan");
 
-define('DBHOST', 'localhost');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('DBNAME', 'pencatatan');
-
-/**
- * $dbconnect : koneksi kedatabase
- */
-$dbconnect = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-
-/**
- * Check Error yang terjadi saat koneksi
- * jika terdapat error maka die() // stop dan tampilkan error
- */
-if ($dbconnect->connect_error) {
-	die('Database Not Connect. Error : ' . $dbconnect->connect_error);
+include_once "parser-php-version.php";
+if (mysqli_connect_error ())
+{
+	echo "Failed broooo" .mysqli_connect_error();
 }
+// $server = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "pencatatan";
+
+// // Koneksi dan memilih database di server
+// mysql_connect($server,$username,$password) or die("Koneksi gagal");
+// mysql_select_db($database) or die("Database tidak bisa dibuka");
+?>
+
+
+

@@ -1,9 +1,9 @@
-<?php 
+<?php
 /**
  * Aplikasi Insentif
- * 
- * 
- * 
+ *
+ *
+ *
  * @author B.E.
  */
 if (!isset($_GET['pg'])) {
@@ -23,16 +23,22 @@ if (!isset($_GET['pg'])) {
 			include 'penjualan.php';
 			break;
 			case 'lappj':
-			include 'lap_penjualan.php';
+            include 'lap_penjualan.php';
+            break;
+            case 'tlp';
+            include 'tambahpenjualan.php';
+            break;
+            case 'deltp';
+            include 'delete.php';
 			break;
 		case 'cetak':
 			include 'cetak_pdf.php';
 			break;
-			
-		default:	        
+
+		default:
 	    	echo "<label>404 Halaman tidak ditemukan</label>";
 	    break;
-		
+
 	}
 }
 

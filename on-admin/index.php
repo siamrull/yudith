@@ -35,11 +35,11 @@ session_start();
 
     <!-- Boostrap Sub Menu -->
     <link rel="stylesheet" href="dist/css/bootstrap-submenu.min.css">
-
+<!--
     <link href="dist/slider/js-image-slider.css" rel="stylesheet" type="text/css" />
     <script src="dist/slider/js-image-slider.js" type="text/javascript"></script>
 
-    <script src="plugins/slider/js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
+    <script src="plugins/slider/js/jssor.slider-21.1.6.min.js" type="text/javascript"></script> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -173,14 +173,14 @@ session_start();
     <!-- Bootstrap 3.3.5 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Sparkline -->
-    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!-- <script src="plugins/sparkline/jquery.sparkline.min.js"></script> -->
     <!-- daterangepicker -->
     <script src="dist/js/moment.min.js"></script>
     <script src="plugins/daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
      <!-- Bootstrap WYSIHTML5 -->
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> -->
     <!-- DataTables -->
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -194,17 +194,17 @@ session_start();
     <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
 
     <!-- SlimScroll -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script> -->
     <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!-- <script src="plugins/fastclick/fastclick.min.js"></script> -->
     <!-- AdminLTE App -->
     <script src="dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
     <!-- ChartJS 1.0.1 -->
-    <script src="plugins/chartjs/Chart.min.js"></script>
+    <!-- <script src="plugins/chartjs/Chart.min.js"></script> -->
     <!-- Donut Chart -->
-    <script src="plugins/chartjs/Chart.Doughnut.js"></script>
+    <!-- <script src="plugins/chartjs/Chart.Doughnut.js"></script> -->
 
     <!-- Fileinput.js -->
     <script src="bootstrap/js/photo_adm.js"></script>

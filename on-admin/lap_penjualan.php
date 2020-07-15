@@ -172,7 +172,6 @@ break;
                         }
                         ?>
 
-
                         </tbody>
                         <tfoot>
                         <tr>
@@ -206,12 +205,12 @@ break;
 
       <div class="row">
               <div class="col-md-4 col-md-offset-8">
-              <form role="form" action="pdf.php" method="POST" target="_blank">
+              <form role="form" action="cetak_pdf.php" method="POST" target="_blank">
               <div class="box-body">
                   <div class="form-group">
-                  <!-- <button type="submit" class="btn btn-danger">
+                  <button type="submit" class="btn btn-danger">
                   <i class="fa fa-file-pdf-o">   Simpan ke PDF</i>
-                  </button> -->
+                  </button>
                   </div>
                   <div class="form-group">
                   <input type="hidden" class="form-control" id="tglpenjualanaw" name="ptglpenjualanaw" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanaw']?>">

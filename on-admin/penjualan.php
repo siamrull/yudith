@@ -42,10 +42,10 @@
                     </thead>
                     <tbody>
                     <?php
-                    $tampil=mysql_query("SELECT * FROM penjualan r join produk p
+                    $tampil=mysqli_query($con,"SELECT * FROM penjualan r join produk p
                     on (p.id_produk=r.id_produk)  order by nopenjualan asc");
                     $no = 1;
-                      while ($r=mysql_fetch_array($tampil)){
+                      while ($r=mysqli_fetch_array($tampil)){
                     ?>
                         <tr>
                         <td><?php echo "$no"?></td>
@@ -84,7 +84,7 @@
       case 'add':
       if (isset($_POST['add'])) {
 
-        $ambilProduk = mysql_fetch_array(mysql_query("select * from produk where id_produk = '$_POST[id_produk]'"));
+        $ambilProduk = mysqli_fetch_array(mysqli_query($con,"select * from produk where id_produk = '$_POST[id_produk]'"));
 
         $total_penjualan = $_POST[itemterjual] * $ambilProduk[harga];
         $sisaStok = $ambilProduk[stokproduk] - $_POST[itemterjual];
@@ -96,11 +96,11 @@
           <script>window.location='?pg=penjualan&act=add'</script>";
         } else {
 
-                $query = mysql_query("INSERT INTO penjualan VALUES ('$_POST[nopenjualan]',
+                $query = mysqli_query($con,"INSERT INTO penjualan VALUES ('$_POST[nopenjualan]',
                 '$_POST[tglpenjualan]','$_POST[id_produk]',
                 '$_POST[itemterjual]','$total_penjualan')");
 
-                mysql_query("update produk set stokproduk = '$sisaStok'
+                mysqli_query($con,"update produk set stokproduk = '$sisaStok'
                              where id_produk = '$_POST[id_produk]'");
                 echo "<script>window.alert('Data Berhasil DI Simpan')
 				window.location='?pg=penjualan&act=view'</script>";
@@ -132,9 +132,9 @@
                     <div class="form-group">
                       <?php
                       //memulai mengambil datanya
-                      $sql = mysql_query("select * from penjualan");
+                      $sql = mysqli_query($con,"select * from penjualan");
 
-                      $num = mysql_num_rows($sql);
+                      $num = mysqli_num_rows($sql);
 
                       if($num <> 0)
                       {
@@ -164,8 +164,8 @@
                       <option value="">--- Silahkan Pilih ---</option>
                       <optgroup label="--- Nama Produk ---">
                       <?php
-                      $tampil=mysql_query("SELECT * FROM produk ORDER BY id_produk");
-                      while($r=mysql_fetch_array($tampil)){
+                      $tampil=mysqli_query($con,"SELECT * FROM produk ORDER BY id_produk");
+                      while($r=mysqli_fetch_array($tampil)){
                       ?>
                       <option value="<?php echo $r['id_produk']?>"><?php echo $r['nama_produk'] ?></option>
                       <?php
@@ -213,15 +213,15 @@
 
     // PROSES HAPUS DATA REALISASI //
       case 'delete':
-      $ambilProduk = mysql_fetch_array(mysql_query("select * from penjualan r
+      $ambilProduk = mysqli_fetch_array(mysqli_query($con,"select * from penjualan r
         join produk p on (r.id_produk=p.id_produk) where nopenjualan='$_GET[id]'"));
 
       $stokproduk = $ambilProduk[itemterjual] + $ambilProduk[stokproduk];
 
-      mysql_query("update produk set stokproduk = '$stokproduk'
+      mysql_queryi($con,"update produk set stokproduk = '$stokproduk'
                     where id_produk = '$ambilProduk[id_produk]'");
 
-      mysql_query("DELETE FROM penjualan WHERE nopenjualan='$_GET[id]'");
+      mysqli_query($con,"DELETE FROM penjualan WHERE nopenjualan='$_GET[id]'");
       echo "<script>window.location='?pg=penjualan&act=view'</script>";
       break;
 

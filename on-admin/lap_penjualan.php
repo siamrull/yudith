@@ -87,8 +87,8 @@ break;
           tglpenjualan BETWEEN  '$_POST[tglpenjualanaw]' AND  '$_POST[tglpenjualanak]'
           ORDER BY nopenjualan ASC";
 
-  $rs=mysql_query($sqlp);
-  $data=mysql_fetch_array($rs);
+  $rs=mysqli_query($con,$sqlp);
+  $data=mysqli_fetch_array($rs);
 
   if (!(empty($data))){
     ?>
@@ -145,12 +145,12 @@ break;
                         </thead>
                         <tbody>
                         <?php
-                        $tampil=mysql_query("SELECT * FROM penjualan r
+                        $tampil=mysqli_query($con,"SELECT * FROM penjualan r
                         JOIN produk p ON ( r.id_produk = p.id_produk) where
                         tglpenjualan BETWEEN  '$_POST[tglpenjualanaw]' AND  '$_POST[tglpenjualanak]'
                         ORDER BY nopenjualan ASC");
                         $no = 1;
-                          while ($r=mysql_fetch_array($tampil)){
+                          while ($r=mysqli_fetch_array($tampil)){
                         ?>
                             <tr>
                             <td><?php echo "$no"?></td>
@@ -183,7 +183,7 @@ break;
                         <td class="total" align = "center"> <span style="font-weight:bold">TOTAL</span></td>
                         <?php
 
-                        $liatHarga=mysql_fetch_array(mysql_query("SELECT sum(total_penjualan) as total_penjualan,
+                        $liatHarga=mysqli_fetch_array(mysqli_query($con,"SELECT sum(total_penjualan) as total_penjualan,
                         sum(harga) as harga_produk, sum(itemterjual) as itemterjual FROM penjualan r
                         join produk p on (r.id_produk=p.id_produk)
                         where
@@ -206,12 +206,12 @@ break;
 
       <div class="row">
               <div class="col-md-4 col-md-offset-8">
-              <form role="form" action="cetak_pdf.php" method="POST" target="_blank">
+              <form role="form" action="pdf.php" method="POST" target="_blank">
               <div class="box-body">
                   <div class="form-group">
-                  <!-- <button type="submit" class="btn btn-danger">
+                  <button type="submit" class="btn btn-danger">
                   <i class="fa fa-file-pdf-o">   Simpan ke PDF</i>
-                  </button> -->
+                  </button>
                   </div>
                   <div class="form-group">
                   <input type="hidden" class="form-control" id="tglpenjualanaw" name="ptglpenjualanaw" placeholder="Nama Konsumen" value= "<?php echo $_POST['tglpenjualanaw']?>">

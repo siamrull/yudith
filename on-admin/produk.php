@@ -46,9 +46,9 @@ error_reporting
 
                     <tbody>
                     <?php
-                    $tampil=mysql_query("SELECT * FROM produk order by id_produk asc");
+                    $tampil=mysqli_query($con,"SELECT * FROM produk order by id_produk asc");
                     $no = 1;
-                      while ($r=mysql_fetch_array($tampil))
+                      while ($r=mysqli_fetch_array($tampil))
                       {
                     ?>
                         <tr>
@@ -80,8 +80,8 @@ error_reporting
               <div class="sisaStok">Stok yang akan Habis : <br/></div>
               <div class="sisa"> <!--sisa-->
                 <?php
-                $tampil=mysql_query("SELECT * FROM produk");
-                      while ($r=mysql_fetch_array($tampil))
+                $tampil=mysqli_query($con,"SELECT * FROM produk");
+                      while ($r=mysqli_fetch_array($tampil))
                       {
                         if($r[stokproduk] <= 28 ){
                           echo " - $r[nama_produk] Sisa $r[stokproduk]<br/>";
@@ -109,13 +109,13 @@ error_reporting
 
 //script validasi data
 
-    $cek = mysql_num_rows(mysql_query("SELECT * FROM produk WHERE
+    $cek = mysqli_num_rows(mysqli_query($con,"SELECT * FROM produk WHERE
   kode_produk='$kode_produk'"));
     if ($cek > 0){
     echo "<script>window.alert('Nama Barang yang anda masukan sudah ada')
     window.location='?pg=produk&act=view'</script>";
     }else {
-    $query = mysql_query("INSERT INTO produk VALUES ('','$_POST[nama_produk]',
+    $query = mysqli_query($con,"INSERT INTO produk VALUES ('','$_POST[nama_produk]',
                 '$_POST[harga]','$_POST[stokproduk]','$_POST[satuan]','$_POST[tglmasuk]')");
 
     echo "<script>window.alert('Data Berhasil Di Simpan')
@@ -199,10 +199,10 @@ error_reporting
       break;
       // PROSES EDIT DATA PRODUK //
       case 'edit':
-      $d = mysql_fetch_array(mysql_query("SELECT * FROM produk WHERE id_produk='$_GET[id]'"));
+      $d = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM produk WHERE id_produk='$_GET[id]'"));
             if (isset($_POST['update'])) {
 
-                mysql_query("UPDATE produk SET nama_produk='$_POST[nama_produk]',
+                mysqliquery($con,"UPDATE produk SET nama_produk='$_POST[nama_produk]',
                   harga='$_POST[harga]',stokproduk='$_POST[stokproduk]',satuan='$_POST[satuan]',tglmasuk='$_POST[tglmasuk]' WHERE id_produk='$_POST[id]'");
                 echo "<script>window.location='?pg=produk&act=view'</script>";
           }
@@ -286,7 +286,7 @@ error_reporting
 
     // PROSES HAPUS DATA PENGGUNA //
       case 'delete':
-      mysql_query("DELETE FROM produk WHERE id_produk='$_GET[id]'");
+      mysqli_query($con,"DELETE FROM produk WHERE id_produk='$_GET[id]'");
       echo "<script>window.location='?pg=produk&act=view'</script>";
       break;
 
